@@ -8,7 +8,11 @@ root.style.backgroundColor = "#747577ff";
 root.style.padding = "20px";
 root.style.borderRadius = "10px";
 root.style.width = "350px";
+root.style.margin="100px auto";
+root.style.boxShadow="2px 2px 4px black";
 
+//adding a backgrond color to the body
+document.body.style.backgroundColor="gray"
 
 // Create a heading and append it inside the root
 const heading = document.createElement("h1");
@@ -16,7 +20,7 @@ const heading = document.createElement("h1");
 heading.id = "head";
 heading.innerText = "Task Tracker";
 heading.style.textAlign = "center";
-heading.style.color = "black";
+heading.style.color = "white";
 root.appendChild(heading);
 
 // Create an input element and place it inside the root
@@ -81,9 +85,12 @@ function loadTask() {
             }
         });
 
+        //a span to hold the counted tasks
         const taskText = document.createElement("span");
         taskText.textContent = taskElement;
-        taskText.style.flexGrow = "1";
+        taskText.style.paddingRight="80px";
+        taskText.style.paddingLeft="30px"
+        taskText.style.fontWeight="bold";
         taskText.style.color = "black";
 
         // Create a delete button
@@ -94,7 +101,7 @@ function loadTask() {
         delBtn.style.padding = "5px 10px";
         delBtn.style.borderRadius = "3px";
         delBtn.style.border = "none";
-        delBtn.style.backgroundColor = "#FF4444";
+        delBtn.style.backgroundColor ="#aa9c9cff";
         delBtn.style.color = "#fff";
         delBtn.style.cursor = "pointer";
 
@@ -110,7 +117,6 @@ function loadTask() {
 
         // Add components to the list element
         li.append(check, taskText, delBtn);
-
         list.appendChild(li);
     }
 }
@@ -121,7 +127,7 @@ const counter = document.createElement("p");
 counter.innerText = `Total Tasks: ${count}`;
 counter.style.textAlign = "center";
 counter.style.fontWeight = "bold";
-counter.style.color = "black";
+counter.style.color = "white";
 root.appendChild(counter);
 
 // Check if there is a value inside the task bar
@@ -137,7 +143,7 @@ function checkTask() {
         count++;
         updateCounter();
         console.log(tasks);
-        task.value = "";
+        task.value = "";//clearing the taskbox after entering the task
         loadTask();
     }
 }
